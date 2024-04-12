@@ -1,0 +1,72 @@
+<html>
+<head>  <title>   Enter Model   </title>
+
+
+
+</head>
+
+<body>
+
+<h1 align='center'>Car Info</h1>
+<table border='1' align='center'>
+<form>
+<tr>
+<th>Enter Model</th>
+<td><input type='text' id='model'></td>
+
+
+</tr>
+<tr>
+<th colspan='2' align='center'><input type='submit' value='submit' id='submit'></th>
+
+</tr>
+
+
+</form>
+
+<script>
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'fa8bb31ab5msh55cdb3dca30b5f9p1f30b7jsn8eddc2b4fd1e',
+		'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
+	}
+};
+const car = (model) => {
+fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla'+ model,options)
+.then((response) => {return response.json()})
+.then((data) => {console.log(data)
+
+for (var i = 0 ; i < data.length ; i++) {
+mod.innerHTML = mod.innerHTML + '<br>' + data[i].model}
+
+})
+}
+submit.addEventListener("click",(event) =>{
+			event.preventDefault()
+			car(model.value)
+			mod.innerHTML =""
+		})
+		
+		car('city')
+</script>
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>
